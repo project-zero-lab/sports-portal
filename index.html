@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports Portal</title>
+<style>
+:root{--ink:#20251f;--muted:#687268;--paper:#f7f8f2;--card:#fff;--line:#e5e9df;--green:#246b4a;--lime:#d9f36a;--orange:#ffb66d;--red:#c94f43;--shadow:0 8px 24px rgba(28,45,32,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.app{max-width:1180px;margin:auto;padding:22px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:14px;background:var(--lime);display:grid;place-items:center;font-size:24px}.brand h1{font-size:22px;margin:0;letter-spacing:-.6px}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.save-status{font-size:12px;color:var(--muted);background:#fff;padding:8px 12px;border:1px solid var(--line);border-radius:99px}.hero{background:var(--green);color:white;border-radius:24px;padding:26px;display:flex;justify-content:space-between;align-items:center;gap:20px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:220px;height:220px;border:1px solid #ffffff30;border-radius:50%;right:10%;top:-130px;box-shadow:0 0 0 28px #ffffff0c,0 0 0 58px #ffffff08}.hero h2{font-size:clamp(24px,4vw,36px);line-height:1.08;margin:0 0 9px;letter-spacing:-1px}.hero p{margin:0;color:#dcebe1;max-width:520px}.hero .pill{background:var(--lime);color:#1f3428;padding:9px 13px;border-radius:99px;font-weight:700;white-space:nowrap;z-index:1}.tabs{display:flex;gap:8px;overflow:auto;padding:16px 0 18px;scrollbar-width:none}.tab{padding:10px 15px;border-radius:99px;background:#fff;border:1px solid var(--line);color:var(--muted);white-space:nowrap;font-weight:650}.tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}.panel{display:none}.panel.active{display:block}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:5px 0 15px}.section-head h2{font-size:22px;margin:0;letter-spacing:-.5px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:var(--shadow);min-width:0}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-7{grid-column:span 7}.span-6{grid-column:span 6}.span-5{grid-column:span 5}.span-4{grid-column:span 4}.card h3{font-size:16px;margin:0 0 12px}.muted{color:var(--muted)}.small{font-size:12px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field{display:flex;flex-direction:column;gap:5px;min-width:0}.field.full{grid-column:1/-1}label{font-size:12px;font-weight:700;color:#59645a}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:10px 11px;background:#fbfcf8;color:var(--ink);outline:none}input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #246b4a16}textarea{min-height:82px;resize:vertical}.btn{padding:10px 14px;border-radius:11px;background:var(--green);color:white;font-weight:700}.btn.secondary{background:#eff3e9;color:#304336}.btn.dark{background:var(--ink)}.btn.danger{background:#fff0ed;color:var(--red)}.btn.smallbtn{padding:7px 10px;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px}.empty{padding:20px;text-align:center;color:var(--muted);background:#f8faf5;border-radius:12px;font-size:13px}.tag{display:inline-block;background:#eef5e9;color:#386449;padding:4px 8px;border-radius:99px;font-size:11px;font-weight:700}.scoreboard{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}.team{background:#f7f9f2;border:1px solid var(--line);border-radius:16px;padding:15px;text-align:center}.team input{text-align:center;font-weight:700;background:white}.score{font-size:clamp(42px,8vw,64px);font-weight:850;letter-spacing:-3px;line-height:1.1;margin:12px 0}.score-controls{display:flex;justify-content:center;gap:7px}.score-controls button{width:36px;height:36px;border-radius:10px;background:#e7efdf;font-size:20px;font-weight:800}.versus{font-weight:900;color:#a0a99e}.sport-select{max-width:240px}.statline{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.stat{background:#f5f7f1;border:1px solid var(--line);padding:8px 11px;border-radius:12px;font-size:12px}.stat b{display:block;font-size:17px}.event-list{display:flex;flex-direction:column;gap:8px;max-height:320px;overflow:auto}.event{border:1px solid var(--line);border-radius:12px;padding:10px 11px;display:flex;justify-content:space-between;gap:10px;font-size:13px}.event strong{display:block}.event time{color:var(--muted);font-size:11px;white-space:nowrap}.rule-list{padding-left:19px;margin:8px 0}.rule-list li{margin:7px 0}.sport-card{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fbfcf8}.sport-card h4{margin:0 0 5px}.sport-card p{font-size:12px;color:var(--muted);margin:0}.sport-card ul{padding-left:18px;font-size:12px;margin:9px 0 0}.sport-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.footer{text-align:center;color:var(--muted);font-size:11px;padding:25px 0 5px}.hidden{display:none!important}
+@media(max-width:760px){.app{padding:14px}.hero{padding:21px;align-items:flex-start;flex-direction:column}.hero .pill{white-space:normal}.span-8,.span-7,.span-6,.span-5,.span-4{grid-column:span 12}.form-grid{grid-template-columns:1fr}.scoreboard{gap:6px}.team{padding:10px 7px}.score{font-size:44px}.score-controls button{width:31px;height:31px}.section-head{align-items:flex-start;flex-direction:column}.topbar{align-items:flex-start}.save-status{max-width:125px;text-align:center}.sport-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+ <div class="brand"><div class="logo">🏅</div><div><h1>Sports Portal</h1><p>Your ground. Your game. Your records.</p></div></div>
+ <div class="save-status" id="saveStatus">● Saved on this device</div>
+</header>
+<section class="hero">
+ <div><h2>Ready, set, play!</h2><p>Keep equipment organised, prepare the ground, track the match and learn the essentials — all in one place.</p></div>
+ <div class="pill">⚽ 🏐 🏸 Kho-Kho</div>
+</section>
+<nav class="tabs" aria-label="Main navigation">
+ <button class="tab active" data-tab="overview">Overview</button><button class="tab" data-tab="inventory">Inventory & Ground</button><button class="tab" data-tab="match">Live Match</button><button class="tab" data-tab="journal">Game Journal</button><button class="tab" data-tab="guide">Game Guide</button><button class="tab" data-tab="backup">Save & Resume</button>
+</nav>
+
+<section class="panel active" id="overview">
+ <div class="section-head"><div><h2>Ground overview</h2><p>A quick look at your sports session records.</p></div><span class="tag" id="todayLabel"></span></div>
+ <div class="grid">
+  <div class="card span-4"><div class="muted small">EQUIPMENT RECORDS</div><div class="score" id="overviewItems">0</div><div class="small muted">Items tracked in inventory</div></div>
+  <div class="card span-4"><div class="muted small">MATCHES LOGGED</div><div class="score" id="overviewMatches">0</div><div class="small muted">Match sessions saved</div></div>
+  <div class="card span-4"><div class="muted small">GAME NOTES</div><div class="score" id="overviewNotes">0</div><div class="small muted">Journal entries recorded</div></div>
+  <div class="card span-7"><h3>Quick start</h3><p class="muted small">Before play, check the equipment and playing area. During play, keep the score and record important events.</p><div class="actions"><button class="btn" onclick="switchTab('inventory')">Check inventory</button><button class="btn secondary" onclick="switchTab('match')">Start a match</button></div></div>
+  <div class="card span-5"><h3>Recent activity</h3><div id="recentActivity" class="event-list"><div class="empty">Your recent records will appear here.</div></div></div>
+ </div>
+</section>
+
+<section class="panel" id="inventory">
+ <div class="section-head"><div><h2>Inventory & ground check</h2><p>Record equipment, its condition, and the condition of the playing area.</p></div></div>
+ <div class="grid">
+  <div class="card span-5">
+   <h3>Add equipment / ground item</h3>
+   <form id="inventoryForm">
+    <div class="form-grid">
+     <div class="field"><label for="itemName">Item name *</label><input id="itemName" required placeholder="e.g. Volleyball"></div>
+     <div class="field"><label for="itemSport">Sport</label><select id="itemSport"><option>General</option><option>Kho-Kho</option><option>Volleyball</option><option>Badminton</option><option>Football</option></select></div>
+     <div class="field"><label for="itemQty">Quantity</label><input id="itemQty" type="number" min="0" value="1"></div>
+     <div class="field"><label for="itemCondition">Condition</label><select id="itemCondition"><option>Good</option><option>Needs repair</option><option>Damaged</option><option>Missing</option></select></div>
+     <div class="field full"><label for="itemLocation">Location / area</label><input id="itemLocation" placeholder="e.g. Equipment room, court side"></div>
+     <div class="field full"><label for="itemNotes">Notes / inspection details</label><textarea id="itemNotes" placeholder="Size, pressure, net condition, surface check, repairs needed..."></textarea></div>
+    </div><div class="actions"><button class="btn" type="submit">＋ Add record</button></div>
+   </form>
+  </div>
+  <div class="card span-7">
+   <h3>Equipment register <span class="tag" id="inventoryCount">0 items</span></h3>
+   <div class="table-wrap" id="inventoryTable"><div class="empty">No items added yet. Add your first equipment record.</div></div>
+  </div>
+  <div class="card span-12">
+   <h3>Ground / pitch inspection</h3>
+   <form id="groundForm">
+    <div class="form-grid">
+     <div class="field"><label for="groundSport">Sport / area</label><select id="groundSport"><option>General ground</option><option>Kho-Kho</option><option>Volleyball</option><option>Badminton</option><option>Football</option></select></div>
+     <div class="field"><label for="groundCondition">Overall condition</label><select id="groundCondition"><option>Ready to use</option><option>Minor issues</option><option>Unsafe — do not use</option></select></div>
+     <div class="field"><label for="groundSurface">Surface / floor</label><input id="groundSurface" placeholder="Dry, even, clean..."></div>
+     <div class="field"><label for="groundMarkings">Lines / markings / net</label><input id="groundMarkings" placeholder="Visible, complete, secure..."></div>
+     <div class="field full"><label for="groundNotes">Inspection notes / action needed</label><textarea id="groundNotes" placeholder="Mention obstacles, wet patches, damaged posts, boundary lines, lighting, etc."></textarea></div>
+    </div><div class="actions"><button class="btn" type="submit">Save ground check</button></div>
+   </form>
+   <div id="groundTable" class="table-wrap" style="margin-top:14px"></div>
+  </div>
+ </div>
+</section>
+
+<section class="panel" id="match">
+ <div class="section-head"><div><h2>Live match scoreboard</h2><p>Two-team scoreboard with a universal manual mode and sport-specific match settings.</p></div></div>
+ <div class="grid">
+  <div class="card span-12">
+   <div class="form-grid">
+    <div class="field"><label for="matchSport">Sport</label><select id="matchSport" class="sport-select"><option>Kho-Kho</option><option>Volleyball</option><option>Badminton</option><option>Football</option></select></div>
+    <div class="field"><label for="scoreMode">Scoring mode</label><select id="scoreMode"><option value="specific">Sport-specific mode</option><option value="universal">Universal manual points</option></select></div>
+    <div class="field"><label for="matchTitle">Match / event name</label><input id="matchTitle" placeholder="e.g. Inter-house final"></div>
+    <div class="field"><label for="matchDate">Date</label><input id="matchDate" type="date"></div>
+   </div>
+   <div class="statline"><div class="stat"><span class="muted">Sport mode</span><b id="modeLabel">Kho-Kho</b></div><div class="stat"><span class="muted">Match status</span><b id="matchState">Not started</b></div><div class="stat"><span class="muted">Elapsed time</span><b id="elapsed">00:00</b></div></div>
+   <div class="scoreboard">
+    <div class="team"><input id="teamA" aria-label="Team A name" value="Team A"><div class="score" id="scoreA">0</div><div class="score-controls"><button onclick="changeScore('A',-1)" aria-label="Decrease Team A">−</button><button onclick="changeScore('A',1)" aria-label="Increase Team A">＋</button></div></div>
+    <div class="versus">VS</div>
+    <div class="team"><input id="teamB" aria-label="Team B name" value="Team B"><div class="score" id="scoreB">0</div><div class="score-controls"><button onclick="changeScore('B',-1)" aria-label="Decrease Team B">−</button><button onclick="changeScore('B',1)" aria-label="Increase Team B">＋</button></div></div>
+   </div>
+   <p class="small muted" id="scoringHint" style="text-align:center;margin:12px 0 0">Kho-Kho: use the manual controls to enter points scored by each team.</p>
+   <div class="actions" style="justify-content:center"><button class="btn" id="startMatch">▶ Start match</button><button class="btn secondary" id="pauseMatch">Ⅱ Pause</button><button class="btn secondary" id="finishMatch">✓ Finish & save result</button><button class="btn danger" id="resetMatch">Reset score</button></div>
+  </div>
+  <div class="card span-6">
+   <h3>Record match event</h3>
+   <form id="eventForm"><div class="form-grid">
+    <div class="field"><label for="eventType">Event type</label><select id="eventType"><option>Foul</option><option>Point / goal</option><option>Substitution</option><option>Timeout</option><option>Injury / break</option><option>Good play</option><option>Other</option></select></div>
+    <div class="field"><label for="eventTeam">Team</label><select id="eventTeam"><option value="A">Team A</option><option value="B">Team B</option><option value="Both">Both / N.A.</option></select></div>
+    <div class="field full"><label for="eventDescription">What happened?</label><input id="eventDescription" required placeholder="Short description of the event"></div>
+   </div><div class="actions"><button class="btn" type="submit">＋ Add event</button></div></form>
+  </div>
+  <div class="card span-6"><h3>Match event timeline</h3><div id="matchEvents" class="event-list"><div class="empty">Events will appear here during the match.</div></div></div>
+ </div>
+</section>
+
+<section class="panel" id="journal">
+ <div class="section-head"><div><h2>Game journal</h2><p>Keep a record of observations, fouls, decisions and learning from each session.</p></div></div>
+ <div class="grid">
+  <div class="card span-5"><h3>Write a journal entry</h3><form id="journalForm">
+   <div class="form-grid">
+    <div class="field"><label for="journalSport">Sport</label><select id="journalSport"><option>Kho-Kho</option><option>Volleyball</option><option>Badminton</option><option>Football</option><option>General</option></select></div>
+    <div class="field"><label for="journalKind">Entry type</label><select id="journalKind"><option>Game observation</option><option>Foul / rule issue</option><option>Team strategy</option><option>Learning / reflection</option><option>Equipment / ground issue</option></select></div>
+    <div class="field full"><label for="journalTitle">Title</label><input id="journalTitle" required placeholder="e.g. First half observations"></div>
+    <div class="field full"><label for="journalText">Details</label><textarea id="journalText" required placeholder="What happened? What did you notice? What can be improved?"></textarea></div>
+   </div><div class="actions"><button class="btn" type="submit">Save journal entry</button></div>
+  </form></div>
+  <div class="card span-7"><h3>Journal entries</h3><div id="journalEntries" class="event-list"><div class="empty">No journal entries yet.</div></div></div>
+ </div>
+</section>
+
+<section class="panel" id="guide">
+ <div class="section-head"><div><h2>Game guide</h2><p>Quick information, basic rules and pre-game checklist for the four selected sports.</p></div></div>
+ <div class="sport-grid" id="sportGuides"></div>
+ <div class="card" style="margin-top:14px"><h3>General pre-game checklist</h3><ul class="rule-list"><li>Check that the playing surface is clean, dry, even and free from obstacles.</li><li>Inspect all equipment for damage and make sure it is suitable for use.</li><li>Confirm team size, match format, boundaries and scoring rules before starting.</li><li>Warm up properly, wear suitable footwear and follow the teacher / referee's instructions.</li><li>Keep drinking water and a basic first-aid kit accessible; report unsafe conditions.</li></ul></div>
+</section>
+
+<section class="panel" id="backup">
+ <div class="section-head"><div><h2>Save & resume</h2><p>Your data saves automatically in this browser. Export a backup or upload a previous backup to continue.</p></div></div>
+ <div class="grid">
+  <div class="card span-6"><h3>Download your data</h3><p class="muted small">JSON keeps all records and can be uploaded later to resume. CSV is useful for opening records in a spreadsheet.</p><div class="actions"><button class="btn" onclick="exportJSON()">↓ Download JSON backup</button><button class="btn secondary" onclick="exportCSV()">↓ Download CSV records</button></div></div>
+  <div class="card span-6"><h3>Upload & resume</h3><p class="muted small">Choose a Sports Portal JSON backup to restore all data. You can also import a CSV inventory export.</p><div class="field"><label for="uploadFile">Choose backup file (.json or .csv)</label><input id="uploadFile" type="file" accept=".json,.csv,application/json,text/csv"></div><div class="actions"><button class="btn" onclick="importFile()">Upload & restore</button></div><p class="small muted" id="uploadMessage" aria-live="polite"></p></div>
+  <div class="card span-12"><h3>Data stored on this device</h3><p class="small muted">Automatic browser storage is convenient on one device, but it is not a cloud account. Download a JSON backup before clearing browser data or moving to another device.</p><button class="btn danger smallbtn" onclick="clearAll()">Clear all portal data</button></div>
+ </div>
+</section>
+<div class="footer">Sports Portal · Offline-ready · Your records stay in this browser unless you export them.</div>
+</div>
+<script>
+const KEY='sportsPortalData_v1';
+const blank=()=>({inventory:[],ground:[],journals:[],matches:[],events:[],current:{sport:'Kho-Kho',mode:'specific',a:0,b:0,teamA:'Team A',teamB:'Team B',title:'',date:new Date().toISOString().slice(0,10),status:'Not started',startedAt:null,elapsedMs:0}});
+let data=loadData(), clockHandle=null;
+function loadData(){try{return JSON.parse(localStorage.getItem(KEY))||blank()}catch(e){return blank()}}
+function save(){localStorage.setItem(KEY,JSON.stringify(data));document.getElementById('saveStatus').textContent='● Saved on this device';renderAll()}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function switchTab(id){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));if(id==='match')syncMatchUI()}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+document.getElementById('inventoryForm').addEventListener('submit',e=>{e.preventDefault();data.inventory.unshift({id:uid(),name:itemName.value,sport:itemSport.value,qty:Number(itemQty.value)||0,condition:itemCondition.value,location:itemLocation.value,notes:itemNotes.value,created:new Date().toISOString()});e.target.reset();itemQty.value=1;save()});
+document.getElementById('groundForm').addEventListener('submit',e=>{e.preventDefault();data.ground.unshift({id:uid(),sport:groundSport.value,condition:groundCondition.value,surface:groundSurface.value,markings:groundMarkings.value,notes:groundNotes.value,created:new Date().toISOString()});e.target.reset();save()});
+document.getElementById('journalForm').addEventListener('submit',e=>{e.preventDefault();data.journals.unshift({id:uid(),sport:journalSport.value,kind:journalKind.value,title:journalTitle.value,body:journalText.value,created:new Date().toISOString()});e.target.reset();save()});
+document.getElementById('eventForm').addEventListener('submit',e=>{e.preventDefault();data.events.unshift({id:uid(),type:eventType.value,team:eventTeam.value,description:eventDescription.value,created:new Date().toISOString(),matchId:data.current.id||null});e.target.reset();save()});
+function changeScore(team,delta){let k=team.toLowerCase();data.current[k]=Math.max(0,(Number(data.current[k])||0)+delta);save();syncMatchUI()}
+function syncCurrentFromUI(){let c=data.current;c.sport=matchSport.value;c.mode=scoreMode.value;c.teamA=teamA.value;c.teamB=teamB.value;c.title=matchTitle.value;c.date=matchDate.value}
+function syncMatchUI(){let c=data.current;matchSport.value=c.sport||'Kho-Kho';scoreMode.value=c.mode||'specific';teamA.value=c.teamA||'Team A';teamB.value=c.teamB||'Team B';matchTitle.value=c.title||'';matchDate.value=c.date||new Date().toISOString().slice(0,10);scoreA.textContent=c.a||0;scoreB.textContent=c.b||0;modeLabel.textContent=c.mode==='universal'?'Universal':c.sport;matchState.textContent=c.status||'Not started';let hints={ 'Kho-Kho':'Kho-Kho: record points manually for each team; use the event log for outs, fouls and innings notes.','Volleyball':'Volleyball: award a point for each rally. Standard sets are usually played to 25 points (win by 2); deciding set formats may differ.','Badminton':'Badminton: rally-point scoring, usually best of 3 games to 21 (win by 2; cap at 30).','Football':'Football: add 1 for each goal. Match duration and tie-break rules depend on the competition.'};scoringHint.textContent=c.mode==='universal'?'Universal mode: manually add or subtract points for either team.':hints[c.sport];renderEvents();updateElapsed()}
+['matchSport','scoreMode','teamA','teamB','matchTitle','matchDate'].forEach(id=>document.getElementById(id).addEventListener('change',()=>{syncCurrentFromUI();save();syncMatchUI()}));
+document.getElementById('startMatch').onclick=()=>{syncCurrentFromUI();if(data.current.status!=='Running'){data.current.status='Running';data.current.startedAt=Date.now();if(!data.current.id)data.current.id=uid();save();startClock()}};
+document.getElementById('pauseMatch').onclick=()=>{if(data.current.status==='Running'){data.current.elapsedMs+=Date.now()-data.current.startedAt;data.current.startedAt=null;data.current.status='Paused';stopClock();save();syncMatchUI()}};
+document.getElementById('finishMatch').onclick=()=>{syncCurrentFromUI();if(data.current.status==='Running'&&data.current.startedAt)data.current.elapsedMs+=Date.now()-data.current.startedAt;data.current.startedAt=null;data.current.status='Finished';stopClock();data.matches.unshift({id:data.current.id||uid(),sport:data.current.sport,title:data.current.title,date:data.current.date,teamA:data.current.teamA,teamB:data.current.teamB,a:data.current.a,b:data.current.b,duration:formatTime(data.current.elapsedMs),created:new Date().toISOString()});save();syncMatchUI()};
+document.getElementById('resetMatch').onclick=()=>{if(confirm('Reset the current scoreboard? This will not delete saved match results or journal entries.')){stopClock();data.current={...blank().current};save();syncMatchUI()}};
+function startClock(){stopClock();clockHandle=setInterval(updateElapsed,1000)}
+function stopClock(){if(clockHandle)clearInterval(clockHandle);clockHandle=null}
+function formatTime(ms){let s=Math.floor(ms/1000);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function updateElapsed(){let c=data.current,ms=c.elapsedMs||0;if(c.status==='Running'&&c.startedAt)ms+=Date.now()-c.startedAt;elapsed.textContent=formatTime(ms)}
+function renderEvents(){let list=data.events.filter(x=>!x.matchId||x.matchId===data.current.id);matchEvents.innerHTML=list.length?list.map(x=>`<div class="event"><div><strong>${esc(x.type)} · ${esc(x.team)}</strong>${esc(x.description)}</div><time>${new Date(x.created).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</time></div>`).join(''):'<div class="empty">Events will appear here during the match.</div>'}
+function renderInventory(){inventoryCount.textContent=data.inventory.length+' items';inventoryTable.innerHTML=data.inventory.length?`<table><thead><tr><th>Item</th><th>Sport</th><th>Qty</th><th>Condition</th><th>Location / notes</th><th></th></tr></thead><tbody>${data.inventory.map(x=>`<tr><td><b>${esc(x.name)}</b></td><td>${esc(x.sport)}</td><td>${x.qty}</td><td><span class="tag">${esc(x.condition)}</span></td><td>${esc(x.location)}<div class="small muted">${esc(x.notes)}</div></td><td><button class="btn danger smallbtn" onclick="removeRecord('inventory','${x.id}')">Delete</button></td></tr>`).join('')}</tbody></table>`:'<div class="empty">No items added yet. Add your first equipment record.</div>';groundTable.innerHTML=data.ground.length?`<table><thead><tr><th>Date</th><th>Area</th><th>Condition</th><th>Surface / markings</th><th>Notes</th><th></th></tr></thead><tbody>${data.ground.map(x=>`<tr><td>${new Date(x.created).toLocaleDateString()}</td><td>${esc(x.sport)}</td><td>${esc(x.condition)}</td><td>${esc(x.surface)}<br>${esc(x.markings)}</td><td>${esc(x.notes)}</td><td><button class="btn danger smallbtn" onclick="removeRecord('ground','${x.id}')">Delete</button></td></tr>`).join('')}</tbody></table>`:'<div class="empty">No ground inspections saved yet.</div>'}
+function renderJournal(){journalEntries.innerHTML=data.journals.length?data.journals.map(x=>`<div class="event"><div><strong>${esc(x.title)} <span class="tag">${esc(x.sport)}</span></strong><span class="small muted">${esc(x.kind)} · ${new Date(x.created).toLocaleString()}</span><div style="margin-top:6px;white-space:pre-wrap">${esc(x.body)}</div><button class="btn danger smallbtn" style="margin-top:8px" onclick="removeRecord('journals','${x.id}')">Delete</button></div></div>`).join(''):'<div class="empty">No journal entries yet.</div>'}
+function removeRecord(type,id){data[type]=data[type].filter(x=>x.id!==id);save()}
+function renderOverview(){overviewItems.textContent=data.inventory.length;overviewMatches.textContent=data.matches.length;overviewNotes.textContent=data.journals.length+data.events.length;let items=[...data.journals.map(x=>({label:x.title,created:x.created,kind:'Journal'})),...data.ground.map(x=>({label:x.sport+' ground check',created:x.created,kind:'Inspection'})),...data.inventory.map(x=>({label:x.name+' added',created:x.created,kind:'Inventory'})),...data.matches.map(x=>({label:(x.title||x.sport)+' result',created:x.created,kind:'Match'}))].sort((a,b)=>new Date(b.created)-new Date(a.created)).slice(0,5);recentActivity.innerHTML=items.length?items.map(x=>`<div class="event"><div><strong>${esc(x.label)}</strong><span class="small muted">${esc(x.kind)}</span></div><time>${new Date(x.created).toLocaleDateString()}</time></div>`).join(''):'<div class="empty">Your recent records will appear here.</div>'}
+const guides=[
+ {name:'Kho-Kho',emoji:'🏃',about:'A team tag sport played on a rectangular field. Teams take turns chasing and defending.',rules:['Two teams take turns as chasers and defenders (runners).','Chasers sit in a row facing alternate directions; one active chaser pursues runners.','A chaser gives Kho by touching a seated teammate from behind and follows the rules for changing direction.','A runner is out when legally touched; teams score through outs.','Follow the official match format for innings, duration and team size.'],kit:'Kho-Kho poles, marked rectangular field, team bibs and whistle.',check:'Check the field markings, pole stability and a clear, non-slippery surface.'},
+ {name:'Volleyball',emoji:'🏐',about:'Two teams play on opposite sides of a net and try to ground the ball in the opponent’s court.',rules:['Each team usually has six players on court.','A team may touch the ball up to three times to return it (block contact has special treatment).','Players rotate clockwise when their team wins the right to serve.','A rally point is awarded after every rally; sets are commonly to 25, win by 2.','A match is commonly best of five sets; the deciding set is commonly to 15, win by 2.'],kit:'Volleyball, net, posts, antennae, court lines and suitable shoes.',check:'Check net height and tension, post padding, court lines and floor grip.'},
+ {name:'Badminton',emoji:'🏸',about:'A racket sport where players or pairs hit a shuttlecock over a net into the opponent’s court.',rules:['Can be played as singles (one player each) or doubles (two players each).','A point is scored on every rally; a game is usually played to 21 points.','A player or pair must win by 2 points; at 29-all, the side reaching 30 wins.','A match is usually best of three games.','Serve diagonally into the correct service court; the shuttle must land inside the court.'],kit:'Rackets, shuttlecocks, net, posts, court markings and non-marking shoes.',check:'Check shuttle condition, net height, court surface and clear space around the court.'},
+ {name:'Football',emoji:'⚽',about:'Two teams try to score by getting the ball into the opponent’s goal, mainly using their feet.',rules:['Each team has up to eleven players on the field, including a goalkeeper.','A standard match has two 45-minute halves, subject to competition rules and added time.','A goal counts when the whole ball crosses the goal line between the posts and under the crossbar.','Offside, fouls, free kicks, penalties, throw-ins, goal kicks and corner kicks affect play.','Outfield players may not deliberately handle the ball; the goalkeeper has limited hand use in their own penalty area.'],kit:'Football, goals and nets, corner flags, cones, bibs, whistle and shin guards.',check:'Check the pitch for holes or debris, secure goalposts, nets and boundary lines.'}
+];
+sportGuides.innerHTML=guides.map(g=>`<article class="sport-card"><h4>${g.emoji} ${g.name}</h4><p>${g.about}</p><b class="small">Basic rules</b><ul>${g.rules.map(r=>`<li>${r}</li>`).join('')}</ul><p style="margin-top:9px"><b>Equipment:</b> ${g.kit}</p><p style="margin-top:5px"><b>Pre-game check:</b> ${g.check}</p></article>`).join('');
+function renderAll(){renderInventory();renderJournal();renderOverview();renderEvents();updateElapsed()}
+function exportJSON(){syncCurrentFromUI();let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});downloadBlob(blob,'sports-portal-backup-'+new Date().toISOString().slice(0,10)+'.json')}
+function downloadBlob(blob,name){let a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function csvCell(v){return '"'+String(v??'').replace(/"/g,'""')+'"'}
+function exportCSV(){let rows=[['record_type','date','name_or_title','sport','quantity_or_score','condition_or_type','details']];data.inventory.forEach(x=>rows.push(['inventory',x.created,x.name,x.sport,x.qty,x.condition,[x.location,x.notes].join(' | ')]));data.ground.forEach(x=>rows.push(['ground',x.created,x.sport,x.sport,'',x.condition,[x.surface,x.markings,x.notes].join(' | ')]));data.journals.forEach(x=>rows.push(['journal',x.created,x.title,x.sport,'',x.kind,x.body]));data.matches.forEach(x=>rows.push(['match',x.created,x.title,x.sport,x.a+'-'+x.b,'finished',x.teamA+' vs '+x.teamB+' · '+x.date]));data.events.forEach(x=>rows.push(['event',x.created,x.type,'',x.team,x.type,x.description]));downloadBlob(new Blob(['\ufeff'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}),'sports-portal-records-'+new Date().toISOString().slice(0,10)+'.csv')}
+function parseCSV(text){let rows=[],row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){let c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){cell+='"';i++}else if(c==='"')quoted=false;else cell+=c}else{if(c==='"')quoted=true;else if(c===','){row.push(cell);cell=''}else if(c==='\n'){row.push(cell);rows.push(row);row=[];cell=''}else if(c!=='\r')cell+=c}}if(cell.length||row.length){row.push(cell);rows.push(row)}return rows}
+async function importFile(){let f=uploadFile.files[0];if(!f){uploadMessage.textContent='Choose a JSON or CSV file first.';return}try{let text=await f.text();if(f.name.toLowerCase().endsWith('.json')){let parsed=JSON.parse(text);if(!parsed||!Array.isArray(parsed.inventory)||!Array.isArray(parsed.journals)||!parsed.current)throw Error('This does not look like a Sports Portal JSON backup.');if(!confirm('Restore this backup? Current portal data will be replaced.'))return;data={...blank(),...parsed};localStorage.setItem(KEY,JSON.stringify(data));syncMatchUI();renderAll();uploadMessage.textContent='Backup restored successfully.'}else{let rows=parseCSV(text);if(!rows.length)throw Error('The CSV file is empty.');let header=rows.shift().map(x=>x.trim());if(!header.includes('record_type'))throw Error('CSV must be a Sports Portal records export.');let count=0;rows.forEach(r=>{let o={};header.forEach((h,i)=>o[h]=r[i]||'');let created=o.date||new Date().toISOString();if(o.record_type==='inventory'){data.inventory.push({id:uid(),name:o.name_or_title,sport:o.sport,qty:Number(o.quantity_or_score)||0,condition:o.condition_or_type,location:'',notes:o.details,created});count++}else if(o.record_type==='journal'){data.journals.push({id:uid(),title:o.name_or_title,sport:o.sport,kind:o.condition_or_type,body:o.details,created});count++}});save();uploadMessage.textContent=count+' inventory / journal record(s) imported. Other CSV record types are kept out of this import.'}}catch(err){uploadMessage.textContent='Import failed: '+err.message}}
+function clearAll(){if(confirm('Delete all inventory, ground checks, match records, events and journal entries from this browser? Download a backup first if you may need them.')){stopClock();data=blank();localStorage.removeItem(KEY);save();syncMatchUI()}}
+todayLabel.textContent=new Date().toLocaleDateString(undefined,{weekday:'short',day:'numeric',month:'short',year:'numeric'});
+if(data.current.status==='Running'){data.current.elapsedMs+=(Date.now()-(data.current.startedAt||Date.now()));data.current.startedAt=Date.now();startClock()}
+syncMatchUI();renderAll();
+</script>
+</body>
+</html>
